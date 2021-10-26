@@ -1,19 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+import ViewImageScreen from './app/screens/ViewImageScreen';
+import WelcomeScreen from './app/screens/WelcomeScreen';
+import IosFonts from './app/screens/IosFonts';
+import AppText from './app/components/AppText';
+import Card from './app/components/Card';
+import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 
 export default function App() {
-  console.log('im testing');
-  console.log('hello');
-  let x = 1002;
-
-  console.log(x);
-
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello world! 🌎</Text>
+      {/* <WelcomeScreen /> */}
+      {/* <ViewImageScreen /> */}
 
-      <StatusBar style="auto" />
+      {/* <View style={styles.cardArea}>
+        <Card title='Red jacket for sale!' subTitle='$100' image={require('./app/assets/jacket.jpg')}/>
+      </View> */}
+
+      <ListingDetailsScreen />
     </View>
   );
 }
@@ -21,11 +28,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#caa2fc',
-    alignItems: 'center',
-    justifyContent: 'center'
+    // backgroundColor: '#f8f4f4',
+    // justifyContent: 'center',
+    // alignItems: 'center'
   },
-  text: {
-    fontSize: 24
+  cardArea: {
+    // backgroundColor: '#f8f4f4',
+    backgroundColor: '#fadfea',
+    alignItems: 'center',
+    padding: 20,
+    paddingTop: 100
   }
 });
