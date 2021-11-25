@@ -9,6 +9,7 @@ import IosFonts from './app/screens/IosFonts';
 import AppText from './app/components/AppText';
 import Card from './app/components/Card';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import MessagesScreen from './app/screens/MessagesScreen';
 
 export default function App() {
   return (
@@ -20,7 +21,9 @@ export default function App() {
         <Card title='Red jacket for sale!' subTitle='$100' image={require('./app/assets/jacket.jpg')}/>
       </View> */}
 
-      <ListingDetailsScreen />
+      {/* <ListingDetailsScreen /> */}
+
+      <MessagesScreen />
     </View>
   );
 }
