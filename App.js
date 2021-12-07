@@ -16,6 +16,7 @@ import ListingsScreen from './app/screens/ListingsScreen';
 import Screen from './app/components/Screen';
 import AppTextInput from './app/components/AppTextInput';
 import AppPicker from './app/components/AppPicker';
+import LoginScreen from './app/screens/LoginScreen';
 
 export default function App() {
   
@@ -25,21 +26,24 @@ export default function App() {
   const [category, setCategory] = useState(categories[0]);
   
   return (
-    <Screen>
-      <Text>{firstName}</Text>
+    // <Screen>
+    //   <Text>{firstName}</Text>
 
-      <AppPicker
-        selectedItem={category}
-        onSelectItem={item => setCategory(item)}
-        items={categories}
-        icon='apps'
-        placeholder={category}
-        />
+    //   <AppPicker
+    //     selectedItem={category}
+    //     onSelectItem={item => setCategory(item)}
+    //     items={categories}
+    //     icon='apps'
+    //     placeholder={category}
+    //     />
 
-      <AppTextInput placeholder='Username' icon='email' />
+    //   <AppTextInput placeholder='Username' icon='email' />
 
-      <Switch value={isNew} onValueChange={newValue => setIsNew(newValue)} />
-    </Screen>
+    //   <Switch value={isNew} onValueChange={newValue => setIsNew(newValue)} />
+    // </Screen>
+
+    <LoginScreen />
+
   );
 }
 
