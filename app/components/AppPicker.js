@@ -4,8 +4,6 @@ import {
   FlatList,
   Modal,
   StyleSheet,
-  Text,
-  TextInput,
   TouchableWithoutFeedback,
   View
 } from 'react-native';
@@ -32,9 +30,15 @@ function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }) {
             />
           )}
 
-          <AppText style={styles.text}>
+          {/* <AppText style={styles.text}>
             {selectedItem ? selectedItem.label : 'Category'}
-          </AppText>
+          </AppText> */}
+
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{'Category'}</AppText>
+          )}
 
           <MaterialCommunityIcons
             name={'chevron-down'}
@@ -79,6 +83,10 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1
+  },
+  placeholder: {
+    flex: 1,
+    color: defaultStyles.colors.medium
   }
 });
 
