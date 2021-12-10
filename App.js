@@ -46,10 +46,9 @@ export default function App() {
 
     // <LoginScreen />
 
-
     // <RegisterScreen />
-
-    <ListingEditScreen />
+    <WelcomeScreen />
+    // <ListingEditScreen />
 
   );
 }
