@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { FlatList, View } from 'react-native';
 
 import Screen from '../components/Screen';
-import ListItem from '../components/ListItem';
-import ListItemSeparator from '../components/ListItemSeparator';
-import ListItemDeleteAction from '../components/ListItemDeleteAction';
+import ListItem from '../components/lists/ListItem';
+import ListItemSeparator from '../components/lists/ListItemSeparator';
+import ListItemDeleteAction from '../components/lists/ListItemDeleteAction';
 
 const initialMessages = [
   {
@@ -29,6 +29,12 @@ const initialMessages = [
     id: 4,
     title: 'T4',
     description: 'D4',
+    image: require('../assets/amund.jpeg')
+  },
+  {
+    id: 5,
+    title: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos rem cumque omnis quisquam velit. Delectus, at. Minima nisi culpa illo incidunt libero et sint atque sequi dignissimos. Repudiandae sapiente iure quos illo placeat explicabo illum similique, quidem accusantium repellendus nostrum?',
+    description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos rem cumque omnis quisquam velit. Delectus, at. Minima nisi culpa illo incidunt libero et sint atque sequi dignissimos. Repudiandae sapiente iure quos illo placeat explicabo illum similique, quidem accusantium repellendus nostrum?',
     image: require('../assets/amund.jpeg')
   }
 ];
@@ -55,6 +61,7 @@ function MessagesScreen() {
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}
+            showChevron
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}

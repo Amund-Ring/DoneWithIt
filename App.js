@@ -28,6 +28,13 @@ export default function App() {
   const [category, setCategory] = useState(categories[0]);
   
   return (
+
+    // <WelcomeScreen />
+
+    // <ListingsScreen />
+
+    <MessagesScreen />
+
     // <Screen>
     //   <Text>{firstName}</Text>
 
@@ -47,7 +54,8 @@ export default function App() {
     // <LoginScreen />
 
     // <RegisterScreen />
-    <WelcomeScreen />
+
+
     // <ListingEditScreen />
 
   );

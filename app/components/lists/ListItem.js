@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, View, Image, TouchableHighlight } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-import colors from '../config/colors';
-import AppText from './AppText';
+import colors from '../../config/colors';
+import AppText from '../AppText';
 
-function ListItem({ image, IconComponent, title, subTitle, onPress, renderRightActions }) {
+function ListItem({ image, IconComponent, title, subTitle, onPress, renderRightActions, showChevron }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
@@ -17,6 +17,7 @@ function ListItem({ image, IconComponent, title, subTitle, onPress, renderRightA
             <AppText style={styles.title}>{title}</AppText>
             {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
           </View>
+          {showChevron && <AppText style={styles.chevron}> {'>'} </AppText>}
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -42,7 +43,12 @@ const styles = StyleSheet.create({
     fontWeight: '500'
   },
   subTitle: {
-    color: colors.medium
+    color: colors.medium,
+  },
+  chevron: {
+    color: colors.medium,
+    alignSelf: 'center',
+    marginLeft: 'auto'
   }
 });
 
