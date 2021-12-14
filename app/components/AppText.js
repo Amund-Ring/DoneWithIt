@@ -7,6 +7,7 @@ function AppText({ children, style }) {
   return <Text style={[defaultStyles.text, style]}
   numberOfLines={1}
   >{children}</Text>;
+  
 }
 
 export default AppText;
