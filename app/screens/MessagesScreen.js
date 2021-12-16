@@ -9,32 +9,14 @@ import ListItemDeleteAction from '../components/lists/ListItemDeleteAction';
 const initialMessages = [
   {
     id: 1,
-    title: 'T1',
-    description: 'D1',
+    title: 'Amund Ring',
+    description: 'Hey! Is this item still available?',
     image: require('../assets/amund.jpeg')
   },
   {
     id: 2,
-    title: 'T2',
-    description: 'D2',
-    image: require('../assets/amund.jpeg')
-  },
-  {
-    id: 3,
-    title: 'T3',
-    description: 'D3',
-    image: require('../assets/amund.jpeg')
-  },
-  {
-    id: 4,
-    title: 'T4',
-    description: 'D4',
-    image: require('../assets/amund.jpeg')
-  },
-  {
-    id: 5,
-    title: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos rem cumque omnis quisquam velit. Delectus, at. Minima nisi culpa illo incidunt libero et sint atque sequi dignissimos. Repudiandae sapiente iure quos illo placeat explicabo illum similique, quidem accusantium repellendus nostrum?',
-    description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos rem cumque omnis quisquam velit. Delectus, at. Minima nisi culpa illo incidunt libero et sint atque sequi dignissimos. Repudiandae sapiente iure quos illo placeat explicabo illum similique, quidem accusantium repellendus nostrum?',
+    title: 'Amund Ring',
+    description: "I'm interested in this item. Are you able to send it by post?",
     image: require('../assets/amund.jpeg')
   }
 ];
@@ -69,9 +51,15 @@ function MessagesScreen() {
         onRefresh={() => {
           setMessages([
             {
+              id: 1,
+              title: 'Amund Ring',
+              description: 'Updated message',
+              image: require('../assets/amund.jpeg')
+            },
+            {
               id: 2,
-              title: 'T2',
-              description: 'D2',
+              title: 'Amund Ring',
+              description: "Updated message",
               image: require('../assets/amund.jpeg')
             }
           ]);

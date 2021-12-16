@@ -33,7 +33,7 @@ export default function App() {
 
     // <ListingsScreen />
 
-    <MessagesScreen />
+    // <MessagesScreen />
 
     // <Screen>
     //   <Text>{firstName}</Text>
@@ -56,7 +56,7 @@ export default function App() {
     // <RegisterScreen />
 
 
-    // <ListingEditScreen />
+    <ListingEditScreen />
 
   );
 }
