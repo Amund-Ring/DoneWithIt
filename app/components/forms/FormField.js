@@ -1,10 +1,10 @@
 import React from 'react';
 import { useFormikContext } from 'formik';
 
-import AppTextInput from '../AppTextInput';
+import AppTextInput from '../TextInput';
 import ErrorMessage from './ErrorMessage';
 
-function AppFormField({ name, width, ...otherProps }) {
+function FormField({ name, width, ...otherProps }) {
   const { handleChange, errors, setFieldTouched, touched } = useFormikContext();
 
   return (
@@ -20,4 +20,4 @@ function AppFormField({ name, width, ...otherProps }) {
   );
 }
 
-export default AppFormField;
+export default FormField;

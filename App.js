@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TextInput, Switch } from 'react-native';
+import { View, StyleSheet, Text, Switch } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -7,15 +7,15 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import IosFonts from './app/screens/IosFonts';
-import AppText from './app/components/AppText';
+import AppText from './app/components/Text';
 import Card from './app/components/Card';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
 import Screen from './app/components/Screen';
-import AppTextInput from './app/components/AppTextInput';
-import AppPicker from './app/components/AppPicker';
+import TextInput from './app/components/TextInput';
+import Picker from './app/components/Picker';
 import LoginScreen from './app/screens/LoginScreen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
@@ -45,8 +45,6 @@ export default function App() {
     //     icon='apps'
     //     placeholder={category}
     //     />
-
-    //   <AppTextInput placeholder='Username' icon='email' />
 
     //   <Switch value={isNew} onValueChange={newValue => setIsNew(newValue)} />
     // </Screen>

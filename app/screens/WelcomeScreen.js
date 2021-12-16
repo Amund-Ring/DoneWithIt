@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
 
 // import colors from '../config/colors';
-import AppButton from '../components/AppButton';
+import Button from '../components/Button';
 
 function WelcomeScreen() {
   return (
@@ -17,8 +17,8 @@ function WelcomeScreen() {
       </View>
 
       <View style={styles.buttonContainer}>
-        <AppButton onPress={() => console.log('Login pressed.')}>Login</AppButton>
-        <AppButton color='secondary' onPress={() => console.log('Register pressed.')}>Register</AppButton>
+        <Button onPress={() => console.log('Login pressed.')}>Login</Button>
+        <Button color='secondary' onPress={() => console.log('Register pressed.')}>Register</Button>
       </View>
     </ImageBackground>
   );
