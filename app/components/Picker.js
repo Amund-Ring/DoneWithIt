@@ -39,10 +39,6 @@ function Picker({
             />
           )}
 
-          {/* <AppText style={styles.text}>
-            {selectedItem ? selectedItem.label : 'Category'}
-          </AppText> */}
-
           {selectedItem ? (
             <AppText style={styles.text}>{selectedItem.label}</AppText>
           ) : (
@@ -88,7 +84,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     padding: 15,
-    marginVertical: 10,
+    marginVertical: 10
   },
   icon: {
     marginRight: 10

@@ -31,30 +31,21 @@ export default function App() {
 
     // <WelcomeScreen />
 
+    // <LoginScreen />
+
     // <ListingsScreen />
 
     // <MessagesScreen />
 
-    // <Screen>
-    //   <Text>{firstName}</Text>
-
-    //   <AppPicker
-    //     selectedItem={category}
-    //     onSelectItem={item => setCategory(item)}
-    //     items={categories}
-    //     icon='apps'
-    //     placeholder={category}
-    //     />
-
-    //   <Switch value={isNew} onValueChange={newValue => setIsNew(newValue)} />
-    // </Screen>
-
-    // <LoginScreen />
+    <AccountScreen />
 
     // <RegisterScreen />
 
+    // <ListingDetailsScreen />
 
-    <ListingEditScreen />
+    // <ListingEditScreen />
+
+    // <ViewImageScreen />
 
   );
 }
