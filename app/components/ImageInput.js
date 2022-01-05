@@ -1,5 +1,5 @@
-import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Alert, Image, StyleSheet, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
@@ -7,6 +7,17 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import colors from '../config/colors';
 
 function ImageInput({ style, imageUri, onChangeImage }) {
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!granted) {
+      alert('You need to enable permission to access the library.');
+    }
+  };
+
   const selectImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
@@ -21,6 +32,11 @@ function ImageInput({ style, imageUri, onChangeImage }) {
 
   const handlePress = () => {
     if (!imageUri) selectImage();
+    else
+      Alert.alert('Delete', 'Are you sure you want to delete this image?', [
+        { text: 'Yes', onPress: () => onChangeImage(null) },
+        { text: 'No' }
+      ]);
   };
 
   return (

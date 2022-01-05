@@ -22,40 +22,26 @@ import RegisterScreen from './app/screens/RegisterScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 import Button from './app/components/Button';
 import ImageInput from './app/components/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
 
 export default function App() {
-  const [imageUri, setImageUri] = useState();
+  const [imageUris, setImageUris] = useState([]);
 
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!granted) {
-      alert('You need to enable permission to access the library.');
-    }
+  const handleAdd = uri => {
+    setImageUris([...imageUris, uri]);
   };
 
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.cancelled) {
-        setImageUri(result.uri);
-      }
-    } catch (error) {
-      console.log('Error reading an image', error);
-    }
+  const handleRemove = uri => {
+    setImageUris(imageUris.filter(imageUri => imageUri !== uri));
   };
-
-  useEffect(() => {
-    requestPermission();
-  }, []);
 
   return (
-    <Screen style={{ padding: 50 }}>
-      <Button onPress={selectImage}>Select Image</Button>
-      <Image
-        source={{ uri: imageUri }}
-        style={{ width: 200, height: 200, alignSelf: 'center', marginTop: 20 }}
+    <Screen>
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
       />
-      <ImageInput style={{ alignSelf: 'center', marginTop: 20 }} imageUri={imageUri} onChangeImage={uri => setImageUri(uri)} />
     </Screen>
   );
 }
