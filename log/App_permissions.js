@@ -21,7 +21,6 @@ import LoginScreen from './app/screens/LoginScreen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 import Button from './app/components/Button';
-import ImageInput from './app/components/ImageInput';
 
 export default function App() {
   const [imageUri, setImageUri] = useState();
@@ -38,6 +37,7 @@ export default function App() {
       const result = await ImagePicker.launchImageLibraryAsync();
       if (!result.cancelled) {
         setImageUri(result.uri);
+        console.log(imageUri);
       }
     } catch (error) {
       console.log('Error reading an image', error);
@@ -55,7 +55,6 @@ export default function App() {
         source={{ uri: imageUri }}
         style={{ width: 200, height: 200, alignSelf: 'center', marginTop: 20 }}
       />
-      <ImageInput style={{ alignSelf: 'center', marginTop: 20 }} imageUri={imageUri} onChangeImage={uri => setImageUri(uri)} />
     </Screen>
   );
 }
