@@ -86,7 +86,7 @@ function ListingEditScreen(props) {
           category: null,
           images: []
         }}
-        onSubmit={values => console.log(location)}
+        onSubmit={values => console.log('\n\nValues: \n', values, '\n\nLocation: \n', location)}
         validationSchema={validationSchema}
       >
         <FormImagePicker name='images' />
