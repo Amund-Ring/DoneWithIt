@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  FlatList,
-  Modal,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View
-} from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Button, FlatList, Modal, StyleSheet, View } from 'react-native';
 
 import defaultStyles from '../config/styles';
 import AppText from './Text';

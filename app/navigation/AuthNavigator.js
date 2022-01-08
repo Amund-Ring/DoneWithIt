@@ -8,15 +8,8 @@ import AppNavigator from './AppNavigator';
 
 const Stack = createStackNavigator();
 
-// const Home = () => <AppNavigator />;
-
 const AuthNavigator = () => (
   <Stack.Navigator>
-    {/* <Stack.Screen
-      name='Home'
-      component={Home}
-      options={{ headerShown: false }}
-    /> */}
     <Stack.Screen
       name='Welcome'
       component={WelcomeScreen}
