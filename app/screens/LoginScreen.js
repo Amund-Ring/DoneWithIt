@@ -47,7 +47,7 @@ function LoginScreen(props) {
               secureTextEntry
             />
             <ErrorMessage error={errors.password} visible={touched.password} />
-            <Button onPress={handleSubmit}>Login</Button>
+            <Button title='Login' onPress={handleSubmit} />
           </>
         )}
       </Formik>

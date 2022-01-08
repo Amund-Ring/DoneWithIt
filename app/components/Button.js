@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import colors from '../config/colors';
 
-function Button({ children, color = 'primary', onPress }) {
+function Button({ title, color = 'primary', onPress }) {
 
   return (
     <TouchableOpacity
@@ -11,7 +11,7 @@ function Button({ children, color = 'primary', onPress }) {
       activeOpacity={0.6}
       onPress={onPress}
     >
-      <Text style={styles.text}>{children}</Text>
+      <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
 }
