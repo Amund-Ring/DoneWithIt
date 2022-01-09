@@ -109,7 +109,6 @@ function ListingEditScreen(props) {
             numberOfColumns={3}
             PickerItemComponent={CategoryPickerItem}
             placeholder='Category'
-            width='50%'
           />
           <FormField
             maxLength={255}

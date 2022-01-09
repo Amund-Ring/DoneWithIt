@@ -21,7 +21,7 @@ function Picker({
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <>
+    <View style={{ width: '50%' }}>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={[styles.container, { width }]}>
           {icon && (
@@ -67,7 +67,7 @@ function Picker({
           />
         </Screen>
       </Modal>
-    </>
+    </View>
   );
 }
 
