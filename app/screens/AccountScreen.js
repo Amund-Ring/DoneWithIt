@@ -16,19 +16,21 @@ const menuItems = [
     title: 'My Listings',
     icon: {
       name: 'format-list-bulleted',
-      backgroundColor: colors.primary
-    }
+      backgroundColor: colors.listings
+    },
+    targetScreen: 'Listings'
   },
   {
     title: 'My Messages',
     icon: {
       name: 'email',
       backgroundColor: colors.secondary
-    }
+    },
+    targetScreen: 'Messages'
   }
 ];
 
-function AccountScreen(props) {
+function AccountScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -46,6 +48,7 @@ function AccountScreen(props) {
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
+              onPress={() => navigation.navigate(item.targetScreen)}
               IconComponent={
                 <Icon
                   name={item.icon.name}
