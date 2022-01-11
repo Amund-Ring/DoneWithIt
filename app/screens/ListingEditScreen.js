@@ -80,20 +80,20 @@ function ListingEditScreen(props) {
 
   return (
     <Screen style={styles.container}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss} >
-        <Form
-          initialValues={{
-            title: '',
-            price: '',
-            description: '',
-            category: null,
-            images: []
-          }}
-          onSubmit={values =>
-            console.log('\n\nValues: \n', values, '\n\nLocation: \n', location)
-          }
-          validationSchema={validationSchema}
-        >
+      <Form
+        initialValues={{
+          title: '',
+          price: '',
+          description: '',
+          category: null,
+          images: []
+        }}
+        onSubmit={values =>
+          console.log('\n\nValues: \n', values, '\n\nLocation: \n', location)
+        }
+        validationSchema={validationSchema}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <FormImagePicker name='images' />
           <FormField maxLength={255} name='title' placeholder='Title' />
           <FormField
@@ -117,9 +117,9 @@ function ListingEditScreen(props) {
             numberOfLines={3}
             placeholder='Description'
           />
-          <SubmitButton>Post</SubmitButton>
-        </Form>
-      </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+        <SubmitButton>Post</SubmitButton>
+      </Form>
     </Screen>
   );
 }

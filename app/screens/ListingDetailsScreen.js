@@ -7,10 +7,10 @@ import ListItem from '../components/lists/ListItem';
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
-  
+
   return (
     <View style={styles.container}>
-      <Image source={listing.image} style={styles.image} />
+      <Image source={{ uri: listing.images[0].url }} style={styles.image} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{listing.title}</AppText>
         <AppText style={styles.price}>${listing.price}</AppText>
@@ -18,8 +18,8 @@ function ListingDetailsScreen({ route }) {
         <View style={styles.userContainer}>
           <ListItem
             image={require('../assets/amund.jpeg')}
-            title="Amund Ring"
-            subTitle="5 listings"
+            title='Amund Ring'
+            subTitle='5 listings'
           ></ListItem>
         </View>
       </View>
