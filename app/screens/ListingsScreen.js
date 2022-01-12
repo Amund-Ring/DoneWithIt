@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+// import LottieView from 'lottie-react-native';
+
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 import AppText from '../components/Text';
@@ -8,18 +10,24 @@ import colors from '../config/colors';
 import listingsApi from '../api/listings';
 import routes from '../navigation/routes';
 import Screen from '../components/Screen';
+import ActivityIndicator from '../components/ActivityIndicator';
 
 function ListingsScreen({ navigation }) {
   const [listings, setListings] = useState([]);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     loadListings();
   }, []);
 
   const loadListings = async () => {
+    setLoading(true);
     const response = await listingsApi.getListings();
+    setLoading(false);
+
     if (!response.ok) return setError(true);
+
     setError(false);
     setListings(response.data);
   };
@@ -34,6 +42,7 @@ function ListingsScreen({ navigation }) {
           </View>
         </View>
       )}
+      <ActivityIndicator visible={loading} style={styles.loading} />
       <FlatList
         style={styles.list}
         data={listings}
@@ -61,10 +70,15 @@ const styles = StyleSheet.create({
     marginTop: '80%',
     alignItems: 'center',
     alignSelf: 'center',
-    width: '70%',
+    width: '70%'
   },
   errorButton: {
     width: '80%'
+  },
+  loading: {
+    alignSelf: 'center',
+    flex: 1,
+    width: 220
   },
   list: {
     overflow: 'visible'
