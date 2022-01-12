@@ -3,12 +3,13 @@ import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
 import { Keyboard } from 'react-native';
 
+import { Form, FormField, FormPicker, SubmitButton } from '../components/forms';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import FormImagePicker from '../components/FormImagePicker';
-import { Form, FormField, FormPicker, SubmitButton } from '../components/forms';
+import listingsApi from '../api/listings';
 import Screen from '../components/Screen';
 import useLocation from '../hooks/useLocation';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -78,6 +79,13 @@ const categories = [
 function ListingEditScreen(props) {
   const location = useLocation();
 
+  const handleSubmit = async listing => {
+    const result = await listingsApi.addListing({ ...listing, location });
+    if (!result.ok) {
+      alert('Could not save the listing');
+    }
+  };
+
   return (
     <Screen style={styles.container}>
       <Form
@@ -88,9 +96,7 @@ function ListingEditScreen(props) {
           category: null,
           images: []
         }}
-        onSubmit={values =>
-          console.log('\n\nValues: \n', values, '\n\nLocation: \n', location)
-        }
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
