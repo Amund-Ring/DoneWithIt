@@ -24,7 +24,7 @@ function ListingsScreen({ navigation }) {
 
   return (
     <Screen style={styles.screen}>
-      {error && (
+      {error && !loading && (
         <View style={styles.error}>
           <AppText>Could not retrive the listings</AppText>
           <View style={styles.errorButton}>
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     width: '80%'
   },
   loading: {
+    marginTop: '65%',
     alignSelf: 'center',
     flex: 1,
     width: 220
