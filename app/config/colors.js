@@ -10,5 +10,6 @@ export default {
   dark: '#0c0c0c',
   danger: '#ff5252',
   listings: '#fc5c65',
+  login: '#fc5c65',
   logout: '#ffe66d'
 };

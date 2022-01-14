@@ -25,10 +25,7 @@ function UploadScreen({ onDone, progress = 0, visible = false }) {
     <Modal visible={visible}>
       <View style={styles.container}>
         {progressVisible && (
-          <Progress.Bar
-            color={colors.primary}
-            progress={progress}
-          />
+          <Progress.Bar color={colors.primary} progress={progress} />
         )}
         {doneVisible && (
           <LottieView
@@ -37,21 +34,9 @@ function UploadScreen({ onDone, progress = 0, visible = false }) {
             loop={false}
             onAnimationFinish={onDone}
             style={styles.animation}
+            speed={1.5}
           />
         )}
-
-
-        {/* {progress < 1 ? (
-          <Progress.Bar color={colors.primary} progress={progress} />
-        ) : (
-          <LottieView
-            source={require('../assets/animations/done.json')}
-            autoPlay
-            loop={false}
-            onAnimationFinish={onDone}
-            style={styles.animation}
-          />
-        )} */}
       </View>
     </Modal>
   );

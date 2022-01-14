@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import LottieView from 'lottie-react-native';
 
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 
 import AppText from '../components/Text';
 import Button from '../components/Button';
@@ -14,13 +13,16 @@ import ActivityIndicator from '../components/ActivityIndicator';
 import useApi from '../hooks/useApi';
 
 function ListingsScreen({ navigation }) {
-  
-  const { data: listings, error, loading, request: loadListings } = useApi(listingsApi.getListings);
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings
+  } = useApi(listingsApi.getListings);
 
   useEffect(() => {
     loadListings();
   }, []);
-
 
   return (
     <Screen style={styles.screen}>
@@ -34,10 +36,12 @@ function ListingsScreen({ navigation }) {
       )}
       <ActivityIndicator visible={loading} style={styles.loading} />
       <FlatList
-        style={styles.list}
         data={listings}
+        refreshing={loading}
+        onRefresh={loadListings}
         keyExtractor={listing => listing.id.toString()}
         showsVerticalScrollIndicator={false}
+        style={styles.list}
         renderItem={({ item }) => (
           <Card
             title={item.title}
