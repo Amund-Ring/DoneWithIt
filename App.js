@@ -1,21 +1,28 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { Text } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import AuthNavigator from './app/navigation/AuthNavigator';
-import navigationTheme from './app/navigation/navigationTheme';
-import AppNavigator from './app/navigation/AppNavigator';
-
-import LoginScreen from './app/screens/LoginScreen';
-import WelcomeScreen from './app/screens/WelcomeScreen';
+import Screen from './app/components/Screen';
 
 export default function App() {
+  const demo = async () => {
+    try {
+      const jsonValue = JSON.stringify({ id: 1 });
+      await AsyncStorage.setItem('person', jsonValue);
+
+      const value = await AsyncStorage.getItem('person');
+      const person = JSON.parse(value);
+      console.log(person);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  demo();
+
   return (
-
-    // <WelcomeScreen />
-
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
-
+    <Screen>
+      <Text>Hello</Text>
+    </Screen>
   );
 }
