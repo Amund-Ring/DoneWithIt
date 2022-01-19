@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import {  }
 
 import colors from '../config/colors';
 import AppText from './Text';
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     shadowOffset: {
       height: 1,
       width: 0
-    },
+    }
   },
   image: {
     width: '100%',
