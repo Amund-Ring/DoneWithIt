@@ -12,15 +12,15 @@ import OfflineNotice from './app/components/OfflineNotice';
 export default function App() {
   return (
 
-    // <WelcomeScreen />
+    <WelcomeScreen />
     // <LoginScreen />
 
-    <>
-    <OfflineNotice />
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
-    </>
+    // <>
+    // <OfflineNotice />
+    // <NavigationContainer theme={navigationTheme}>
+    //   <AppNavigator />
+    // </NavigationContainer>
+    // </>
 
   );
 }
