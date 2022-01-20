@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
 
-// import colors from '../config/colors';
 import Button from '../components/Button';
 import routes from '../navigation/routes';
 
@@ -13,12 +12,19 @@ function WelcomeScreen({ navigation }) {
       blurRadius={8}
     >
       <View style={styles.logoContainer}>
-        <Image source={require('../assets/logo-red.png')} style={styles.logo} />
+        <Image
+          source={require('../assets/logo-blue.png')}
+          style={styles.logo}
+        />
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button title='Login' color='login' onPress={() => navigation.navigate(routes.LOGIN)} />
+        <Button
+          title='Login'
+          color='login'
+          onPress={() => navigation.navigate(routes.LOGIN)}
+        />
         <Button
           title='Register'
           color='secondary'

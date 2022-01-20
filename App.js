@@ -7,15 +7,20 @@ import AppNavigator from './app/navigation/AppNavigator';
 
 import LoginScreen from './app/screens/LoginScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
+import OfflineNotice from './app/components/OfflineNotice';
 
 export default function App() {
   return (
 
     // <WelcomeScreen />
+    // <LoginScreen />
 
+    <>
+    <OfflineNotice />
     <NavigationContainer theme={navigationTheme}>
       <AppNavigator />
     </NavigationContainer>
+    </>
 
   );
 }
