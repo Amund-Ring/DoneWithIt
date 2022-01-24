@@ -14,7 +14,6 @@ const validationSchema = Yup.object().shape({
 function RegisterScreen(props) {
   return (
     <Screen style={styles.container}>
-
       <Form
         initialValues={{ name: '', email: '', password: '' }}
         onSubmit={values => console.log(values)}
@@ -45,7 +44,7 @@ function RegisterScreen(props) {
           secureTextEntry
           textContentType='password'
         />
-        <SubmitButton>Register</SubmitButton>
+        <SubmitButton title='Register' />
       </Form>
     </Screen>
   );

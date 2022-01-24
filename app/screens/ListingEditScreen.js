@@ -142,7 +142,7 @@ function ListingEditScreen() {
             placeholder='Description'
           />
         </TouchableWithoutFeedback>
-        <SubmitButton>Post</SubmitButton>
+        <SubmitButton title='Post' />
       </Form>
     </Screen>
   );

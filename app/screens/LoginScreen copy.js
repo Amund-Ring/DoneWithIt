@@ -38,7 +38,7 @@ function LoginScreen(props) {
           secureTextEntry
           textContentType='password'
         />
-        <SubmitButton>Login</SubmitButton>
+        <SubmitButton title='Login' />
       </AppForm>
     </Screen>
   );
