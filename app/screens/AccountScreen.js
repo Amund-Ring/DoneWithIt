@@ -1,9 +1,6 @@
-import React from 'react';
-import {
-  FlatList,
-  StyleSheet,
-  View
-} from 'react-native';
+import React, { useContext } from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import AuthContext from '../auth/context';
 
 import Icon from '../components/Icon';
 import ListItem from '../components/lists/ListItem';
@@ -11,6 +8,7 @@ import ListItemSeparator from '../components/lists/ListItemSeparator';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import routes from '../navigation/routes';
+import authStorage from '../auth/storage';
 
 const menuItems = [
   {
@@ -32,18 +30,27 @@ const menuItems = [
 ];
 
 function AccountScreen({ navigation }) {
+  const { user, setUser } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    setUser(null);
+    authStorage.removeToken();
+  };
+  
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
           image={require('../assets/amund.jpeg')}
-          title='Amund Ring'
-          subTitle='ring.amund@gmail.com'
+          title={user.name}
+          subTitle={user.email}
         ></ListItem>
       </View>
 
       <View style={styles.container}>
-        <FlatList style={{marginBottom: 5}}
+        <FlatList
+          style={{ marginBottom: 5 }}
           data={menuItems}
           keyExtractor={menuItem => menuItem.title}
           renderItem={({ item }) => (
@@ -65,8 +72,8 @@ function AccountScreen({ navigation }) {
       <ListItem
         IconComponent={<Icon name='logout' backgroundColor={colors.logout} />}
         title='Log Out'
+        onPress={handleLogout}
       ></ListItem>
-
     </Screen>
   );
 }
