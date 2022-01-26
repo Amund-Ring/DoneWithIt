@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { StyleSheet, Image } from 'react-native';
 import * as Yup from 'yup';
-import jwtDecode from 'jwt-decode';
 
 import Screen from '../components/Screen';
 import {
@@ -11,8 +10,7 @@ import {
   SubmitButton
 } from '../components/forms';
 import authApi from '../api/auth';
-import AuthContext from '../auth/context';
-import authStorage from '../auth/storage'
+import useAuth from '../auth/useAuth';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -20,17 +18,14 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen(props) {
-  // const auth = useAuth();
-  const authContext = useContext(AuthContext);
+  const { logIn } = useAuth();
   const [loginFailed, setLoginFailed] = useState(false);
 
   const handleSubmit = async ({ email, password }) => {
     const result = await authApi.login(email, password);
     if (!result.ok) return setLoginFailed(true);
     setLoginFailed(false);
-    const user = jwtDecode(result.data);
-    authContext.setUser(user);
-    authStorage.storeToken(result.data);
+    logIn(result.data);
   };
 
   return (
@@ -69,19 +64,6 @@ function LoginScreen(props) {
     </Screen>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     padding: 10,
-//   },
-//   logo: {
-//     width: 80,
-//     height: 80,
-//     alignSelf: "center",
-//     marginTop: 50,
-//     marginBottom: 20,
-//   },
-// });
 
 const styles = StyleSheet.create({
   container: {

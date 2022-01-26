@@ -8,16 +8,17 @@ import navigationTheme from './app/navigation/navigationTheme';
 import OfflineNotice from './app/components/OfflineNotice';
 import authStorage from './app/auth/storage';
 
-
 export default function App() {
   const [user, setUser] = useState();
 
-  const getUser = async () => {
-    setUser(await authStorage.getUser());
+  const restoreUser = async () => {
+    const user = await authStorage.getUser();
+    if (user) setUser(user);
+
   };
 
   useEffect(() => {
-    getUser();
+    restoreUser();
   }, []);
 
   return (
