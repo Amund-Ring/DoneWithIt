@@ -25,34 +25,36 @@ function ListingsScreen({ navigation }) {
   }, []);
 
   return (
-    <Screen style={styles.screen}>
-      {error && !loading && (
-        <View style={styles.error}>
-          <AppText>Could not retrive the listings</AppText>
-          <View style={styles.errorButton}>
-            <Button title='Retry' onPress={loadListings} />
-          </View>
-        </View>
-      )}
+    <>
       <ActivityIndicator visible={loading} style={styles.loading} />
-      <FlatList
-        data={listings}
-        refreshing={loading}
-        onRefresh={loadListings}
-        keyExtractor={listing => listing.id.toString()}
-        showsVerticalScrollIndicator={false}
-        style={styles.list}
-        renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            subTitle={'$' + item.price}
-            imageUrl={item.images[0].url}
-            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-            thumbnailUrl={item.images[0].thumbnailUrl }
-          />
+      <Screen style={styles.screen}>
+        {error && !loading && (
+          <View style={styles.error}>
+            <AppText>Could not retrive the listings</AppText>
+            <View style={styles.errorButton}>
+              <Button title='Retry' onPress={loadListings} />
+            </View>
+          </View>
         )}
-      />
-    </Screen>
+        <FlatList
+          data={listings}
+          refreshing={loading}
+          onRefresh={loadListings}
+          keyExtractor={listing => listing.id.toString()}
+          showsVerticalScrollIndicator={false}
+          style={styles.list}
+          renderItem={({ item }) => (
+            <Card
+              title={item.title}
+              subTitle={'$' + item.price}
+              imageUrl={item.images[0].url}
+              onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+              thumbnailUrl={item.images[0].thumbnailUrl}
+            />
+          )}
+        />
+      </Screen>
+    </>
   );
 }
 
@@ -71,10 +73,7 @@ const styles = StyleSheet.create({
     width: '80%'
   },
   loading: {
-    marginTop: '65%',
-    alignSelf: 'center',
-    flex: 1,
-    width: 220
+    marginTop: 50
   },
   list: {
     overflow: 'visible'
