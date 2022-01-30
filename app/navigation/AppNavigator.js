@@ -51,18 +51,22 @@ const AppNavigator = () => {
     };
   }, []);
 
+  // const getToken = async () => {
+  //   if (Constants.isDevice) {
+  //     const token = (await Notifications.getExpoPushTokenAsync()).data;
+  //     console.log(token);
+  //     sendPushNotification(token);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     getToken();
+  //   }, 5000);
+  // }, []);
+
   const registerForPushNotifications = async () => {
     try {
-      // const permission = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-      // console.log(permission);
-      // if (!permission.granted) return;
-
-      // const token = await Notifications.getExpoPushTokenAsync();
-      // console.log('token');
-      // expoPushTokens.register(token);
-
-
-      // let token;
       if (Constants.isDevice) {
         const { status: existingStatus } =
           await Notifications.getPermissionsAsync();
@@ -78,11 +82,7 @@ const AppNavigator = () => {
         const token = (await Notifications.getExpoPushTokenAsync()).data;
         console.log(token);
         expoPushTokens.register(token);
-      } else {
-        // alert('Must use physical device for Push Notifications');
       }
-
-      // return token;
     } catch (error) {
       console.log('Error getting a push token', error);
     }
@@ -150,27 +150,5 @@ async function sendPushNotification(expoPushToken) {
     body: JSON.stringify(message)
   });
 }
-
-// async function registerForPushNotificationsAsync() {
-//   let token;
-//   if (Constants.isDevice) {
-//     const { status: existingStatus } = await Notifications.getPermissionsAsync();
-//     let finalStatus = existingStatus;
-//     if (existingStatus !== 'granted') {
-//       const { status } = await Notifications.requestPermissionsAsync();
-//       finalStatus = status;
-//     }
-//     if (finalStatus !== 'granted') {
-//       alert('Failed to get push token for push notification!');
-//       return;
-//     }
-//     token = (await Notifications.getExpoPushTokenAsync()).data;
-//     console.log(token);
-//   } else {
-//     // alert('Must use physical device for Push Notifications');
-//   }
-
-//   return token;
-// }
 
 export default AppNavigator;
