@@ -21,6 +21,7 @@ export default function App() {
     restoreUser();
   }, []);
 
+
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <OfflineNotice />

@@ -1,29 +1,45 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+  Keyboard
+} from 'react-native';
 import { Image } from 'react-native-expo-image-cache';
-
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 import colors from '../config/colors';
 import AppText from '../components/Text';
 import ListItem from '../components/lists/ListItem';
+import ContactSellerForm from '../components/ContactSellerForm';
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
 
   return (
     <View style={styles.container}>
-      <Image uri={listing.images[0].url} preview={{ uri: listing.images[0].thumbnailUrl }} style={styles.image} tint='light' />
-      <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{listing.title}</AppText>
-        <AppText style={styles.price}>${listing.price}</AppText>
-
-        <View style={styles.userContainer}>
-          <ListItem
-            image={require('../assets/amund.jpeg')}
-            title='Amund Ring'
-            subTitle='5 listings'
-          ></ListItem>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Image
+          uri={listing.images[0].url}
+          preview={{ uri: listing.images[0].thumbnailUrl }}
+          style={styles.image}
+          tint='light'
+        />
+        <View style={styles.detailsContainer}>
+          <AppText style={styles.title}>{listing.title}</AppText>
+          <AppText style={styles.price}>${listing.price}</AppText>
+          <View>
+            <ListItem
+              image={require('../assets/amund.jpeg')}
+              title='Amund Ring'
+              subTitle='5 listings'
+            ></ListItem>
+          </View>
         </View>
+      </TouchableWithoutFeedback>
+      <View style={styles.contactContainer}>
+        <ContactSellerForm listing={listing} />
       </View>
     </View>
   );
@@ -35,15 +51,13 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: colors.white
   },
-  userContainer: {
-    marginVertical: 40
-  },
   image: {
     width: '100%',
     height: 300
   },
   detailsContainer: {
-    padding: 20
+    paddingTop: 10,
+    paddingHorizontal: 20
   },
   title: {
     fontWeight: '500',
@@ -53,7 +67,10 @@ const styles = StyleSheet.create({
     color: colors.secondary,
     fontSize: 20,
     fontWeight: 'bold',
-    marginVertical: 10
+    marginVertical: 5
+  },
+  contactContainer: {
+    paddingHorizontal: 20
   }
 });
 
