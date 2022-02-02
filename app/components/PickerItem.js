@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import AppText from './Text';
 
@@ -15,6 +15,6 @@ const styles = StyleSheet.create({
   text: {
     padding: 20
   }
-})
+});
 
 export default PickerItem;

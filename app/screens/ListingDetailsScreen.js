@@ -2,8 +2,6 @@ import React from 'react';
 import {
   View,
   StyleSheet,
-  KeyboardAvoidingView,
-  Platform,
   Keyboard
 } from 'react-native';
 import { Image } from 'react-native-expo-image-cache';

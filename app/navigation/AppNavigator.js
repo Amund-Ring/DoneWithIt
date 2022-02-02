@@ -10,7 +10,6 @@ import NewListingButton from './NewListingButton';
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
-
   return (
     <Tab.Navigator>
       <Tab.Screen

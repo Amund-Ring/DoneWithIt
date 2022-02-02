@@ -10,7 +10,12 @@ function Card({ title, subTitle, imageUrl, onPress, thumbnailUrl }) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
-        <Image uri={imageUrl} preview={{ uri: thumbnailUrl }} style={styles.image} tint='light' />
+        <Image
+          uri={imageUrl}
+          preview={{ uri: thumbnailUrl }}
+          style={styles.image}
+          tint='light'
+        />
         <View style={styles.detailsContainer}>
           <AppText style={styles.title}>{title}</AppText>
           <AppText style={styles.subTitle}>{subTitle}</AppText>

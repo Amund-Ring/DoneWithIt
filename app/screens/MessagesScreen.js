@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
 
 import Screen from '../components/Screen';
 import ListItem from '../components/lists/ListItem';
@@ -16,7 +16,8 @@ const initialMessages = [
   {
     id: 2,
     title: 'Amund Ring',
-    description: "I'm interested in this item. Are you able to send it by post?",
+    description:
+      "I'm interested in this item. Are you able to send it by post?",
     image: require('../assets/amund.jpeg')
   }
 ];
@@ -59,7 +60,7 @@ function MessagesScreen() {
             {
               id: 2,
               title: 'Amund Ring',
-              description: "Updated message",
+              description: 'Updated message',
               image: require('../assets/amund.jpeg')
             }
           ]);

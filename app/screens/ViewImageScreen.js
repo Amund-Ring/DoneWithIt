@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import colors from '../config/colors';
@@ -7,10 +7,11 @@ import colors from '../config/colors';
 function ViewImageScreen() {
   return (
     <View style={styles.container}>
-
-      <MaterialCommunityIcons style={styles.closeIcon} name="close" />
-      <MaterialCommunityIcons style={styles.deleteIcon} name="trash-can-outline" />
-
+      <MaterialCommunityIcons style={styles.closeIcon} name='close' />
+      <MaterialCommunityIcons
+        style={styles.deleteIcon}
+        name='trash-can-outline'
+      />
 
       <Image source={require('../assets/chair.jpg')} style={styles.image} />
     </View>

@@ -14,13 +14,11 @@ export default function App() {
   const restoreUser = async () => {
     const user = await authStorage.getUser();
     if (user) setUser(user);
-
   };
 
   useEffect(() => {
     restoreUser();
   }, []);
-
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>

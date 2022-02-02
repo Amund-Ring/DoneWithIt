@@ -4,7 +4,6 @@ import * as Progress from 'react-native-progress';
 import LottieView from 'lottie-react-native';
 
 import colors from '../config/colors';
-import Text from '../components/Text';
 
 function UploadScreen({ onDone, progress = 0, visible = false }) {
   const [progressVisible, setProgressVisible] = useState(true);
