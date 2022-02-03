@@ -5,10 +5,10 @@ const settings = {
     apiUrl: 'http://192.168.1.78:9000/api'
   },
   staging: {
-    apiUrl: 'http://192.168.1.78:9000/api'
+    apiUrl: 'https://backend-for-donewithit.herokuapp.com/api'
   },
   prod: {
-    apiUrl: 'http://192.168.1.78:9000/api'
+    apiUrl: 'https://backend-for-donewithit.herokuapp.com/api'
   }
 };
 
